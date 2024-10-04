@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPortfolio</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f0f0f;
+        }
+
+        .mobile-nav-toggle {
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: none;
+        }
+
+        .desktop-nav-toggle {
+            cursor: pointer;
+        }
+
+        .desktop-nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            display: none;
+        }
+
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .mobile-menu.show {
+            max-height: 300px; /* Adjust this value based on your content */
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-black-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-lg font-bold">Portfolio</div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex items-center space-x-6 text-sm">
+                    <a href="#" class="hover:text-gray-400">Home</a>
+                    <a href="#projects" class="hover:text-gray-400">Projects</a>
+                    <a href="#about" class="hover:text-gray-400">About</a>
+                    <a href="#contact" class="hover:text-gray-400">Contacts</a>
+                    <a href="https://www.instagram.com/vngll_/" class="text-xl hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <!-- Hamburger menu -->
+                <button id="hamburger" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile navigation menu -->
+        <div id="mobile-menu" class="mobile-menu bg-black-900 md:hidden">
+            <div class="px-4 py-2">
+                <a href="#" class="block py-2">Home</a>
+                <a href="#projects" class="block py-2">Projects</a>
+                <a href="#about" class="block py-2">About</a>
+                <a href="#contact" class="block py-2">Contacts</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-between p-6 md:p-20 text-center md:text-left" data-aos="fade-up">
+        <div class="md:w-1/2">
+            <h1 id="typed-text" class="text-4xl md:text-6xl font-extrabold mb-6 leading-snug"></h1>
+            <h2 class="text-2xl md:text-5xl font-bold mb-4">I'm a Web Developer</h2>
+            <p class="text-gray-400 mb-8">Saya seorang front-end developer amatir yang antusias, dengan minat besar dalam membuat desain web yang menarik dan responsif. Saya selalu bersemangat untuk belajar dan berkembang di dunia web.</p>
+            <a href="#projects" class="inline-block px-8 py-4 border border-white hover:bg-white hover:text-black transition-all duration-300">View My Projects</a>
+        </div>
+        <div class="md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0" data-aos="fade-left">
+            <img src="WhatsApp_Image_2024-08-13_at_06.41.53-removebg-preview.png" alt="Your Image" class="rounded-lg max-w-xs md:max-w-sm">
+        </div>
+    </section>
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-black-900 min-h-screen py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center text-white mb-16 sm:mb-20" data-aos="fade-up">
+                My <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Projects</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Project 1 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="evote.jpeg" alt="Project 1" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">E-Voter OSPK ( Fullstack )</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Platform e-voting OSIS dan MPK dengan antarmuka responsif dan hasil pemilihan real-time.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="expo.png" alt="Project 2" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">65Creativity</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Website interaktif untuk pameran SMK Negeri 65 Jakarta, menampilkan karya siswa dalam format digital.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="game.png" alt="Project 3" class="w-full h-full object-cover object-center">
+                        <div class="absolute in set-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">CosmicVortex</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Game 2D tembak-tembakan pesawat luar angkasa dengan aksi seru dan grafis retro.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="fav.png" alt="Project 4" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Cek Guru Favorit</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Memungkinkan pengguna melihat guru favorit siswa dengan memasukkan nama siswa.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="lt.png" alt="Project 5" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Private Linktree</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">menampilkan semua tautan penting seperti portfolio, media sosial, dan proyek-proyek yang sedang dikerjakan</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 6 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="eb.png" alt="Project 6" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">E-Bus ( Full Stack )</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">
+                                Platform untuk memesan tiket bus online secara mudah dan cepat, memungkinkan pengguna memilih rute, jadwal, dan melakukan pembayaran secara langsung.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 7 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="700">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="fc.png" alt="Project 7" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class ="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Fircode Portfolio</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">
+                                Website yang menampilkan karya, proyek, dan keterampilan pribadi secara profesional, lengkap dengan deskripsi setiap proyek dan informasi kontak.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 8 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="800">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="65.png" alt="Project 8" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Website SMKN 65</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">menyediakan informasi tentang sekolah, program studi, berita terkini, kegiatan siswa, dan layanan bagi siswa serta orang tua.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 9 -->
+                <div class="group" data-aos="fade-up" data-aos-delay="900">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
+                        <img src="ns.png" alt="Project 9" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
+                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Nusantara Jelajah</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Website yang menampilkan informasi dan rekomendasi tentang tempat wisata di Indonesia, lengkap dengan deskripsi, foto, dan tips perjalanan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-black-900 text-white min-h-screen flex items-center">
+        <div class="container mx-auto px-6">
+            <div class="text-center lg:text-left">
+                <h2 class="text-5xl md:text-6xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-600" data-aos="fade-up">
+                    About Me
+                </h2>
+                <div class="text-black-500 text-lg md:text-xl leading-relaxed mb-8 space-y-6" data-aos="fade-up" data-aos-delay="200">
+                    <p>Saya adalah seorang front-end developer amatir yang penuh semangat dalam menciptakan desain web yang menarik dan fungsional.</p>
+                    <p>Saya selalu berusaha menggabungkan kreativitas dengan teknologi terbaru, menciptakan pengalaman pengguna yang luar biasa di setiap proyek.</p>
+                    <p>Ketika tidak sedang coding, saya suka menghabiskan waktu untuk belajar hal-hal baru, mengasah keterampilan saya, dan mengerjakan proyek-proyek sampingan yang menarik.</p>
+                </div>
+                <a href="#projects" class="inline-block px-10 py-4 mt-4 border border-gray-600 text-gray-400 hover:bg-gradient-to-r from-indigo-500 to-pink-500 hover:text-white transition-all duration-500 transform hover:scale-105" data-aos="fade-up" data-aos-delay="400">
+                    Lihat Proyek Saya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 bg-black-900 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-extrabold text-center mb-12" data-aos="fade-up">My Skills</h2>
+    
+            <!-- Front End Section -->
+            <div class="mb-16">
+                <h3 class="text-4xl font-bold text-center mb-8" data-aos="fade-right">
+                    <i class="fas fa-laptop-code text-blue-500"></i> Front End
+                </h3>
+                <div class="flex flex-wrap justify-center space-x-8">
+                    <div class="text-center" data-aos="zoom-in">
+                        <i class="fab fa-html5 text-red-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">HTML</p>
+                        <span class="text-red-500">EXPERT</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fab fa-css3-alt text-blue-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">CSS</p>
+                        <span class="text-blue-600">EXPERT</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fab fa-js text-yellow-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">JavaScript</p>
+                        <span class="text-yellow-500">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fab fa-react text-blue-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">React</p>
+                        <span class="text-blue-500">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fab fa-angular text-red-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Angular</p>
+                        <span class="text-red-600">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fab fa-bootstrap text-purple-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Bootstrap</p>
+                        <span class="text-purple-500">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fa-solid fa-file-code text-teal-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Tailwind</p>
+                        <span class="text-teal-500">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="700">
+                        <i class="fab fa-vuejs text-green-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Vue.js</p>
+                        <span class="text-green-600">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="800">
+                        <i class="fab fa-sass text-pink-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">SASS</p>
+                        <span class="text-pink-500">BASIC</span>
+                    </div>
+                    <!-- Add more front-end skills here -->
+                </div>
+            </div>
+    
+            <!-- Back End Section -->
+            <div class="mb-16">
+                <h3 class="text-4xl font-bold text-center mb-8" data-aos="fade-left">
+                    <i class="fas fa-server text-green-500"></i> Back End
+                </h3>
+                <div class="flex flex-wrap justify-center space-x-8">
+                    <div class="text-center" data-aos="zoom-in">
+                        <i class="fab fa-php text-indigo-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">PHP</p>
+                        <span class="text-indigo-600">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fab fa-laravel text-red-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Laravel</p>
+                        <span class="text-red-600">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-database text-yellow-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">MySQL</p>
+                        <span class="text-yellow-600">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fab fa-node-js text-green-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Node.js</p>
+                        <span class="text-green-600">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fab fa-python text-yellow-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Python</p>
+                        <span class="text-yellow-600">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fab fa-java text-red-700 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Java</p>
+                        <span class="text-red-700">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fa-brands fa-golang text-blue-700 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Go</p>
+                        <span class="text-blue-700">BASIC</span>
+                    </div>
+                    <!-- Add more back-end skills here -->
+                </div>
+            </div>
+    
+            <!-- Additional Skills Section -->
+            <div class="mb-16">
+                <h3 class="text-4xl font-bold text-center mb-8" data-aos="fade-right">
+                    <i class="fas fa-toolbox text-yellow-500"></i> Additional Skills
+                </h3>
+                <div class="flex flex-wrap justify-center space-x-8">
+                    <div class="text-center" data-aos="zoom-in">
+                        <i class="fa-solid fa-image text-red-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Photoshop</p>
+                        <span class="text-red-600">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-video text-blue-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">After Effects</p>
+                        <span class="text-blue-500">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fa-regular fa-file-video text-red-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Premiere</p>
+                        <span class="text-red-500">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-camera text-purple-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Lightroom</p>
+                        <span class="text-purple-600">MID</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-cogs text-gray-700 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">AutoCAD</p>
+                        <span class="text-gray-700">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fas fa-chart-line text-green-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Excel</p>
+                        <span class="text-green-600">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fas fa-file-word text-blue-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Word</p>
+                        <span class="text-blue-600">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="700">
+                        <i class="fa-solid fa-file-powerpoint text-red-500 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">PowerPoint</p>
+                        <span class="text-red-500">BASIC</span>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="800">
+                        <i class="fas fa-camera text-gray-600 text-6xl hover:scale-110 transition transform duration-300"></i>
+                        <p class="mt-4 text-lg">Photography</p>
+                        <span class="text-gray-600">MID</span>
+                    </div>
+                    <!-- Add more additional skills here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="relative bg-black-900 text-white py-16 md:py-32 overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 -z-10">
+            <canvas id="particleCanvas" class="w-full h-full"></canvas>
+        </div>
+    
+        <!-- Contact Content -->
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-8" data-aos="fade-up">Get in Touch</h2>
+            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                I'm excited to connect with you! Reach out through any of the channels below for inquiries, collaborations, or just to chat.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- WhatsApp Card -->
+                <a href="https://wa.me/6282125511485" class="contact-card group relative flex flex-col items-center bg-gradient-to-r from-green-400 via-green-500 to-green-600 p-8 rounded-2xl shadow-2xl transform transition-transform duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden">
+                    <i class="fab fa-whatsapp fa-4x mb-4 text-white transition-transform duration-300 group-hover:translate-y-2"></i>
+                    <span class="text-xl font-semibold mb-2 text-white">WhatsApp</span>
+                    <p class="text-gray-200">Send me a message directly on WhatsApp.</p>
+                    <div class="absolute inset-0 border-4 border-transparent group-hover:border-white transition-all duration-300"></div>
+                </a>
+                <!-- Email Card -->
+                <a href="mailto:azhif.firdaus25@gmail.com" class="contact-card group relative flex flex-col items-center bg-gradient-to-r from-red-400 via-red-500 to-red-600 p-8 rounded-2xl shadow-2xl transform transition-transform duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden">
+                    <i class="fas fa-envelope fa-4x mb-4 text-white transition-transform duration-300 group-hover:translate-y-2"></i>
+                    <span class="text-xl font-semibold mb-2 text-white">Email</span>
+                    <p class="text-gray-200">Drop me an email and I’ll get back to you soon.</p>
+                    <div class="absolute inset-0 border-4 border-transparent group-hover:border-white transition-all duration-300"></div>
+                </a>
+                <!-- Discord Card -->
+                <a href="https://discord.com/users/justprz252" class="contact-card group relative flex flex-col items-center bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl transform transition-transform duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden">
+                    <i class="fab fa-discord fa-4x mb-4 text-white transition-transform duration-300 group-hover:translate-y-2"></i>
+                    <span class="text-xl font-semibold mb-2 text-white">Discord</span>
+                    <p class="text-gray-200">Connect with me on Discord for quick chats.</p>
+                    <div class="absolute inset-0 border-4 border-transparent group-hover:border-white transition-all duration-300"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Include Font Awesome CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Particle Animation Script -->
+    <script>
+        // Particle animation
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        let particles = [];
+        const colors = ['#ff0081', '#ff8c00', '#ff0081'];
+    
+        function createParticle(e) {
+            const x = e.x;
+            const y = e.y;
+            const size = Math.random() * 10 + 1;
+            const speedX = Math.random() * 3 - 1.5;
+            const speedY = Math.random() * 3 - 1.5;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            particles.push({ x, y, size, speedX, speedY, color });
+        }
+    
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+            particles.forEach((particle, index) => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fillStyle = particle.color;
+                ctx.fill();
+    
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                particle.size *= 0.96;
+    
+                if (particle.size <= 0.2) {
+                    particles.splice(index, 1);
+                }
+            });
+    
+            requestAnimationFrame(animateParticles);
+        }
+    
+        canvas.addEventListener('mousemove', createParticle);
+        animateParticles();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+    <script src="nav.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var options = {
+                strings: ["Hi, I'm Nazhif"],
+                typeSpeed: 100,
+                backSpeed: 50,
+                backDelay: 1000,
+                loop: false,
+                showCursor: false // Menonaktifkan kursor ketikan jika tidak diinginkan
+            };
+            var typed = new Typed('#typed-text', options);
+        });
+    </script>
+
+</body>
+</html>
