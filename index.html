@@ -279,7 +279,7 @@
           <!-- Foto (sama kaya Hero, biar konsisten) -->
           <div class="flex justify-center lg:justify-start" data-aos="fade-right">
             <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-gradient-to-r from-indigo-500 to-pink-500 shadow-2xl">
-              <img src="WhatsApp_Image_2024-08-13_at_06.41.53-removebg-preview.png" alt="Foto Najib" class="w-full h-full object-cover">
+              <img src="gue.png" alt="Foto Najib" class="w-full h-full object-cover">
             </div>
           </div>
     
@@ -290,7 +290,7 @@
             </h2>
             <div class="text-gray-300 text-lg md:text-xl leading-relaxed space-y-6">
               <p>
-                Saya <span class="font-semibold text-indigo-400">Najib Firdaus</span>, 
+                Saya <span class="font-semibold text-indigo-400">Athaillah Nazhif Firdaus</span>, 
                 lulusan <span class="font-semibold">SMK Negeri 65 Jakarta, Jurusan Software Engineering (2025)</span>.
               </p>
               <p>
@@ -646,6 +646,54 @@
         </script>
 
     </section>
+
+    <section id="testimoni" class="p-10 bg-gray-900 text-white">
+  <h2 class="text-3xl font-bold mb-6">Testimoni</h2>
+
+  <form id="testimoniForm" class="mb-6">
+    <input type="text" id="nama" placeholder="Nama" required
+      class="p-2 rounded text-black mb-2 block w-full">
+    <textarea id="isi" placeholder="Tulis testimoni..." required
+      class="p-2 rounded text-black mb-2 block w-full"></textarea>
+    <button type="submit" 
+      class="px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-700 transition">
+      Kirim
+    </button>
+  </form>
+
+  <div id="listTestimoni" class="space-y-4"></div>
+</section>
+
+<script>
+  const form = document.getElementById("testimoniForm");
+  const list = document.getElementById("listTestimoni");
+
+  function loadTestimoni() {
+    const data = JSON.parse(localStorage.getItem("testimoni")) || [];
+    list.innerHTML = "";
+    data.forEach(t => {
+      const card = document.createElement("div");
+      card.className = "bg-gray-800 p-4 rounded-lg shadow";
+      card.innerHTML = `<h4 class="font-bold">${t.nama}</h4><p>${t.isi}</p>`;
+      list.appendChild(card);
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value;
+    const isi = document.getElementById("isi").value;
+
+    const data = JSON.parse(localStorage.getItem("testimoni")) || [];
+    data.push({ nama, isi });
+    localStorage.setItem("testimoni", JSON.stringify(data));
+
+    form.reset();
+    loadTestimoni();
+  });
+
+  loadTestimoni();
+</script>
                 
 
     <section id="contact" class="relative bg-black-900 text-white py-16 md:py-32 overflow-hidden">
@@ -759,6 +807,7 @@
 
 </body>
 </html>
+
 
 
 
