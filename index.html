@@ -647,53 +647,66 @@
 
     </section>
 
-    <section id="testimoni" class="p-10 bg-gray-900 text-white">
-  <h2 class="text-3xl font-bold mb-6">Testimoni</h2>
+    <!-- Testimoni Section -->
+    <section id="testimoni" class="bg-black text-white py-20 px-6 md:px-20">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-600" data-aos="fade-up">
+          Testimoni
+        </h2>
+    
+        <!-- Form -->
+        <form id="testimoniForm" class="max-w-2xl mx-auto mb-12 space-y-4" data-aos="fade-up" data-aos-delay="200">
+          <input type="text" id="nama" placeholder="Nama Anda" required
+            class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <textarea id="isi" placeholder="Tulis testimoni..." required
+            class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+          <button type="submit"
+            class="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-pink-500 hover:opacity-90 transition-all duration-300 font-semibold shadow-lg">
+            Kirim Testimoni
+          </button>
+        </form>
+    
+        <!-- List Testimoni -->
+        <div id="listTestimoni" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="400">
+          <!-- Card testimoni muncul disini -->
+        </div>
+      </div>
+    </section>
+    
+    <script>
+      const form = document.getElementById("testimoniForm");
+      const list = document.getElementById("listTestimoni");
+    
+      function loadTestimoni() {
+        const data = JSON.parse(localStorage.getItem("testimoni")) || [];
+        list.innerHTML = "";
+        data.forEach(t => {
+          const card = document.createElement("div");
+          card.className = "bg-gray-900 border border-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transform transition";
+          card.innerHTML = `
+            <h4 class="font-bold text-lg mb-2 text-indigo-400">${t.nama}</h4>
+            <p class="text-gray-300 leading-relaxed">"${t.isi}"</p>
+          `;
+          list.appendChild(card);
+        });
+      }
+    
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nama = document.getElementById("nama").value;
+        const isi = document.getElementById("isi").value;
+    
+        const data = JSON.parse(localStorage.getItem("testimoni")) || [];
+        data.push({ nama, isi });
+        localStorage.setItem("testimoni", JSON.stringify(data));
+    
+        form.reset();
+        loadTestimoni();
+      });
+    
+      loadTestimoni();
+    </script>
 
-  <form id="testimoniForm" class="mb-6">
-    <input type="text" id="nama" placeholder="Nama" required
-      class="p-2 rounded text-black mb-2 block w-full">
-    <textarea id="isi" placeholder="Tulis testimoni..." required
-      class="p-2 rounded text-black mb-2 block w-full"></textarea>
-    <button type="submit" 
-      class="px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-700 transition">
-      Kirim
-    </button>
-  </form>
-
-  <div id="listTestimoni" class="space-y-4"></div>
-</section>
-
-<script>
-  const form = document.getElementById("testimoniForm");
-  const list = document.getElementById("listTestimoni");
-
-  function loadTestimoni() {
-    const data = JSON.parse(localStorage.getItem("testimoni")) || [];
-    list.innerHTML = "";
-    data.forEach(t => {
-      const card = document.createElement("div");
-      card.className = "bg-gray-800 p-4 rounded-lg shadow";
-      card.innerHTML = `<h4 class="font-bold">${t.nama}</h4><p>${t.isi}</p>`;
-      list.appendChild(card);
-    });
-  }
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const nama = document.getElementById("nama").value;
-    const isi = document.getElementById("isi").value;
-
-    const data = JSON.parse(localStorage.getItem("testimoni")) || [];
-    data.push({ nama, isi });
-    localStorage.setItem("testimoni", JSON.stringify(data));
-
-    form.reset();
-    loadTestimoni();
-  });
-
-  loadTestimoni();
-</script>
                 
 
     <section id="contact" class="relative bg-black-900 text-white py-16 md:py-32 overflow-hidden">
@@ -807,6 +820,7 @@
 
 </body>
 </html>
+
 
 
 
