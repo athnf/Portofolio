@@ -11,8 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
+        /* Efek Background Modern */
         body {
-            background-color: #0f0f0f;
+            background-color: #000000;
+            font-family: 'Inter', sans-serif; /* Pastikan pakai font yang clean */
         }
 
         .mobile-nav-toggle {
@@ -52,15 +54,82 @@
             max-height: 300px; /* Adjust this value based on your content */
         }
         .glow-effect {
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)); /* Glow biru */
-    transition: filter 0.3s ease-in-out;
-}
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)); /* Glow biru */
+            transition: filter 0.3s ease-in-out;
+        }
 
-.glow-effect:hover {
-    filter: drop-shadow(0 0 30px rgb(255, 255, 255)); /* Glow lebih kuat saat hover */
-}
+        .glow-effect:hover {
+            filter: drop-shadow(0 0 30px rgb(255, 255, 255)); /* Glow lebih kuat saat hover */
+        }
 
+        .text-gradient-bw {
+            background: linear-gradient(to right, #ffffff, #a1a1a1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
+        /* Glassmorphism Button */
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 1);
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        /* Floating Animation untuk foto */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Efek cahaya halus di belakang foto */
+        .hero-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            filter: blur(100px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Reveal Animation Text */
+        .reveal-text {
+            background: linear-gradient(to right, #ffffff 50%, #404040 50%);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: background-position 1s ease-out;
+        }
+        .reveal-text:hover { background-position: 0 0; }
+
+        /* Moving Border Animation for Image */
+        .img-container::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, transparent, #fff, transparent);
+            z-index: -1;
+            animation: rotate 4s linear infinite;
+            border-radius: 24px;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="text-white">
@@ -78,7 +147,7 @@
                     <a href="#about" class="hover:text-gray-400">About</a>
                     <a href="#achievements" class="hover:text-gray-400">Achievements</a>
                     <a href="#contact" class="hover:text-gray-400">Contacts</a>
-                    <a href="https://www.instagram.com/vngll_/" class="text-xl hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/athnf._/" class="text-xl hover:text-gray-400"><i class="fab fa-instagram"></i></a>
                 </div>
                 
                 <!-- Hamburger menu -->
@@ -101,651 +170,736 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="flex flex-col md:flex-row items-center justify-between p-6 md:p-20 text-center md:text-left bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white" data-aos="fade-up">
-      
-      <!-- Text Section -->
-      <div class="md:w-1/2 space-y-6">
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-snug">
-          Hi, I'm <span class="text-indigo-400">Nazhif</span>
-        </h1>
-        <h2 class="text-2xl md:text-5xl font-bold text-indigo-300">
-          IT Trainer & Software Engineer
-        </h2>
-        <p class="text-gray-300 text-lg leading-relaxed">
-          Lulusan <span class="font-semibold text-white">SMK Negeri 65 Jakarta</span>, jurusan <span class="text-indigo-400">Software Engineering (2025)</span>.  
-          Gue bantu orang belajar coding dengan cara <span class="font-semibold">santai, fun, dan langsung praktik</span>.  
-          Fokus di Python, JavaScript, dan Web Development, biar siapa pun bisa mulai dari nol sampai bikin project nyata.
-        </p>
+    <section class="relative min-h-screen flex items-center bg-black text-white py-24 overflow-hidden">
     
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
-          <a href="#classes" class="px-8 py-4 bg-indigo-500 text-white rounded-lg shadow-lg hover:bg-indigo-600 transition-all duration-300">
-            Join My Class
-          </a>
-          <a href="#projects" class="px-8 py-4 border border-gray-400 rounded-lg hover:bg-white hover:text-black transition-all duration-300">
-            View Projects
-          </a>
+        <div class="absolute inset-0 z-0 opacity-10" 
+            style="background-image: linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px); background-size: 50px 50px;">
         </div>
-      </div>
-    
-      <!-- Image Section -->
-      <div class="mt-10 md:mt-0 md:w-1/2 flex justify-center">
-        <img src="WhatsApp_Image_2024-08-13_at_06.41.53-removebg-preview.png" 
-          alt="Athnfit Trainer" 
-          class="rounded-2xl max-w-xs md:max-w-sm shadow-2xl hover:scale-105 transition-transform duration-300">
-      </div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                
+                <div class="w-full lg:w-2/3 space-y-8" data-aos="fade-up" data-aos-duration="1200">
+                    
+                    <div class="flex flex-wrap items-center gap-3">
+                        <span class="px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-white/20 rounded">
+                            Software Engineer
+                        </span>
+                        <span class="px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-white/20 rounded">
+                            ML Practitioner
+                        </span>
+                        <span class="px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase border border-white/20 rounded">
+                            IT Trainer
+                        </span>
+                    </div>
+
+                    <h1 class="text-6xl md:text-8xl font-extrabold leading-[0.95] tracking-tighter">
+                        BUILDING <br> 
+                        <span class="text-gray-500">DIGITAL</span> SYSTEMS.
+                    </h1>
+
+                    <p class="max-w-xl text-lg md:text-xl text-gray-400 font-light leading-relaxed">
+                        I am <span class="text-white">Nazhif</span>. Specialized in developing end-to-end software solutions, from 
+                        <span class="text-white">Full-stack systems</span> to <span class="text-white">Machine Learning</span> models. 
+                        Committed to clean code and mentoring the next 20+ emerging developers.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-6 pt-4">
+                        <a href="#projects" class="px-10 py-4 bg-white text-black font-bold text-sm tracking-tight hover:bg-gray-200 transition-all text-center">
+                            EXPLORE PROJECTS
+                        </a>
+                        <a href="assets/Resume_AthaillahNazhif.pdf" download class="px-10 py-4 border border-white/20 text-white font-bold text-sm tracking-tight hover:bg-white hover:text-black transition-all text-center">
+                            DOWNLOAD CV
+                        </a>
+                    </div>
+
+                    <div class="pt-12 flex items-center gap-8 border-t border-white/10">
+                        <div class="hidden sm:block text-[11px] font-bold text-gray-500 uppercase tracking-widest">Tech Stack</div>
+                        <div class="flex gap-6 text-gray-400 text-xl">
+                            <i class="fab fa-python hover:text-white transition-colors cursor-help" title="Python / ML"></i>
+                            <i class="fab fa-js hover:text-white transition-colors cursor-help" title="Fullstack JS"></i>
+                            <i class="fab fa-react hover:text-white transition-colors cursor-help" title="Frontend"></i>
+                            <i class="fas fa-database hover:text-white transition-colors cursor-help" title="Backend/SQL"></i>
+                            <i class="fab fa-node-js hover:text-white transition-colors cursor-help" title="Backend"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/3" data-aos="fade-left" data-aos-duration="1200">
+                    <div class="relative group">
+                        <div class="relative z-10 bg-[#111] overflow-hidden">
+                            <img src="WhatsApp_Image_2024-08-13_at_06.41.53-removebg-preview.png" 
+                                alt="Nazhif" 
+                                class="w-full grayscale brightness-90 hover:grayscale-0 hover:brightness-100 transition-all duration-700">
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-4 w-20 h-20 border-l border-b border-white/20"></div>
+                        <div class="absolute -top-4 -right-4 w-20 h-20 border-r border-t border-white/20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 right-10 flex flex-col items-center gap-4">
+            <span class="text-[10px] uppercase tracking-[0.3em] rotate-90 mb-8 text-gray-500">Scroll</span>
+            <div class="w-[1px] h-16 bg-white/20"></div>
+        </div>
     </section>
 
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-black-900 min-h-screen py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center text-white mb-16 sm:mb-20" data-aos="fade-up">
-                My <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Works</span>
+    <section id="projects" class="bg-black py-60 overflow-hidden border-t border-white/10">
+    <div class="container mx-auto px-6 lg:px-12">
+        
+        <div class="mb-56" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-12 h-[1px] bg-white"></span>
+                <p class="text-[10px] font-bold tracking-[0.6em] text-white uppercase">Development Archive 2023-2025</p>
+            </div>
+            <h2 class="text-7xl md:text-[12rem] font-black tracking-tighter leading-none text-white uppercase">
+                Selected <br> <span class="text-[#1a1a1a] stroke-text">Systems.</span>
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Project 1 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="evote.jpeg" alt="Project 1" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">E-Voter OSPK ( Fullstack )</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Platform e-voting OSIS dan MPK dengan antarmuka responsif dan hasil pemilihan real-time.</p>
-                        </div>
-                    </div>
+        </div>
+
+        <style>
+            .stroke-text {
+                -webkit-text-stroke: 1px #333;
+                color: transparent;
+                transition: all 0.7s ease;
+            }
+            .group:hover .stroke-text {
+                -webkit-text-stroke: 1px #fff;
+            }
+        </style>
+
+        <div class="space-y-[35vh]">
+            
+            <div class="group flex flex-col lg:flex-row gap-16 lg:items-center" data-aos="fade-right">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="evote.jpeg" alt="E-Voter" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -left-6 text-white/5 font-black text-[15rem] leading-none pointer-events-none">01</span>
                 </div>
-                <!-- Project 2 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="expo.png" alt="Project 2" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">65Creativity</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Website interaktif untuk pameran SMK Negeri 65 Jakarta, menampilkan karya siswa dalam format digital.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="game.png" alt="Project 3" class="w-full h-full object-cover object-center">
-                        <div class="absolute in set-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">CosmicVortex</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Game 2D tembak-tembakan pesawat luar angkasa dengan aksi seru dan grafis retro.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 4 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="fav.png" alt="Project 4" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Cek Guru Favorit</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">Memungkinkan pengguna melihat guru favorit siswa dengan memasukkan nama siswa.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="500">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="lt.png" alt="Project 5" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Private Linktree</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">menampilkan semua tautan penting seperti portfolio, media sosial, dan proyek-proyek yang sedang dikerjakan</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 6 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="600">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="eb.png" alt="Project 6" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">E-Bus ( Full Stack )</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">
-                                Platform untuk memesan tiket bus online secara mudah dan cepat, memungkinkan pengguna memilih rute, jadwal, dan melakukan pembayaran secara langsung.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 7 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="800">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="espo.jpeg" alt="Project 8" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">SMKN 65 Exhibition Squad</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">A dedicated team making visions a reality, blending creativity, teamwork, and passion into a remarkable exhibition.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 8 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="700">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="musik.jpeg" alt="Project 7" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class ="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Music & Videoclip Production Recap</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">
-                                Dokumentasi perjalanan saya dalam produksi video klip lagu sekolah dan berbagai kegiatan bermusik, menggabungkan kreativitas audiovisual dengan passion di dunia musik</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 9 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="900">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="dokum.jpeg" alt="Project 9" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Multimedia & Filmmaking Documentation Recap</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">A collection of my documentation work in various events related to multimedia and filmmaking, capturing creativity and visual storytelling</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 10 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="900">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="p5.jpeg" alt="Project 9" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Leadership Recap in P5 Projects</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">A summary of my leadership journey in various P5 projects, focusing on collaboration, creativity, and positive impact</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 11 -->
-                <div class="group" data-aos="fade-up" data-aos-delay="900">
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl aspect-w-16 aspect-h-9">
-                        <img src="gawe.jpeg" alt="Project 9" class="w-full h-full object-cover object-center">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"></div>
-                        <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 transform translate-y-4 group-hover:translate-y-0 transition duration-300 ease-in-out">
-                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">OSIS SMKN 65 Documentation Recap (2 Terms)</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition duration-300 delay-100">A summary of OSIS SMKN 65's journey, activities, and achievements over two terms, reflecting dedication and contributions to the organization</p>
-                        </div>
+                <div class="w-full lg:w-2/5 space-y-6">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ ARCHITECTURE</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">E-VOTER <br> CORE</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        A robust <span class="text-white">Full-stack voting ecosystem</span> designed for student governance. Focused on data integrity, real-time result broadcasting, and high-concurrency security.
+                    </p>
+                    <div class="pt-4 flex gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#NextJS</span> <span>#PostgreSQL</span> <span>#Realtime</span>
                     </div>
                 </div>
             </div>
+
+            <div class="group flex flex-col lg:flex-row-reverse gap-16 lg:items-center" data-aos="fade-left">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="expo.png" alt="65Creativity" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -right-6 text-white/5 font-black text-[15rem] leading-none text-right pointer-events-none">02</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6 lg:text-right">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ INTERFACE</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">65 CREATIVE <br> ENGINE</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        High-performance <span class="text-white">digital exhibition platform</span>. Engineered for seamless asset delivery and immersive user experience for SMKN 65's creative showcase.
+                    </p>
+                    <div class="pt-4 flex lg:justify-end gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#Frontend</span> <span>#Performance</span> <span>#UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row gap-16 lg:items-center" data-aos="fade-right">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="game.png" alt="CosmicVortex" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -left-6 text-white/5 font-black text-[15rem] leading-none pointer-events-none">03</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ INTELLIGENCE</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">COSMIC <br> LOGIC</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        A specialized <span class="text-white">simulation engine</span> integrating predictive Python algorithms into interactive space mechanics. Bridging AI logic with real-time interactivity.
+                    </p>
+                    <div class="pt-4 flex gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#Python</span> <span>#MachineLearning</span> <span>#Algorithm</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row-reverse gap-16 lg:items-center" data-aos="fade-left">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="fav.png" alt="Teacher API" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -right-6 text-white/5 font-black text-[15rem] leading-none text-right pointer-events-none">04</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6 lg:text-right">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ DATA SCIENCE</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">ANALYTICS <br> CORE</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        A <span class="text-white">data-driven assessment tool</span> designed to crawl and process student feedback, generating actionable insights into educator performance and favoritism metrics.
+                    </p>
+                    <div class="pt-4 flex lg:justify-end gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#API</span> <span>#DataAnalysis</span> <span>#Backend</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row gap-16 lg:items-center" data-aos="fade-right">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="lt.png" alt="Linktree" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -left-6 text-white/5 font-black text-[15rem] leading-none pointer-events-none">05</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ BRANDING</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">IDENTITY <br> VAULT</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        A bespoke <span class="text-white">personal directory system</span>. Optimized for sub-second loading and cross-platform accessibility, acting as the primary hub for digital identity.
+                    </p>
+                    <div class="pt-4 flex gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#Minimalism</span> <span>#Optimization</span> <span>#BioLink</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row-reverse gap-16 lg:items-center" data-aos="fade-left">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="eb.png" alt="E-Bus" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -right-6 text-white/5 font-black text-[15rem] leading-none text-right pointer-events-none">06</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6 lg:text-right">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ COMMERCE</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">E-BUS <br> PROTOCOL</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        An end-to-end <span class="text-white">transportation booking engine</span>. Features secure transaction flows, seat allocation logic, and automated scheduling management.
+                    </p>
+                    <div class="pt-4 flex lg:justify-end gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#Fullstack</span> <span>#Commerce</span> <span>#Scale</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row gap-16 lg:items-center" data-aos="fade-right">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="espo.jpeg" alt="Exhibition" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -left-6 text-white/5 font-black text-[15rem] leading-none pointer-events-none">07</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ LEADERSHIP</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">STRATEGIC <br> SQUAD</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Led a cross-functional <span class="text-white">multimedia production team</span>. Managed vision execution, technical synchronization, and creative direction for large-scale school events.
+                    </p>
+                    <div class="pt-4 flex gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#TeamLead</span> <span>#Production</span> <span>#Strategy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row-reverse gap-16 lg:items-center" data-aos="fade-left">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="musik.jpeg" alt="Music" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -right-6 text-white/5 font-black text-[15rem] leading-none text-right pointer-events-none">08</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6 lg:text-right">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ AUDIO</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">SONIC <br> DESIGN</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Expertise in <span class="text-white">audiovisual production</span> and sound design. Crafting immersive sonic landscapes for digital media and institutional promotional assets.
+                    </p>
+                    <div class="pt-4 flex lg:justify-end gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#SoundDesign</span> <span>#Production</span> <span>#Creative</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row gap-16 lg:items-center" data-aos="fade-right">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="dokum.jpeg" alt="Multimedia" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -left-6 text-white/5 font-black text-[15rem] leading-none pointer-events-none">09</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ VISUAL</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">CINEMATIC <br> FLOW</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Professional <span class="text-white">cinematography and recap</span> services. Capturing high-stakes organizational journeys through a cinematic lens and precise visual storytelling.
+                    </p>
+                    <div class="pt-4 flex gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#Filmmaking</span> <span>#VisualArts</span> <span>#Directing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row-reverse gap-16 lg:items-center" data-aos="fade-left">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="p5.jpeg" alt="P5" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -right-6 text-white/5 font-black text-[15rem] leading-none text-right pointer-events-none">10</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6 lg:text-right">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ COLLABORATION</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">P5 <br> FRAMEWORK</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Strategic <span class="text-white">project coordination</span> within the P5 framework. Managing complex timelines, social impact goals, and multidisciplinary student teams.
+                    </p>
+                    <div class="pt-4 flex lg:justify-end gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#Management</span> <span>#Impact</span> <span>#Agile</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row gap-16 lg:items-center" data-aos="fade-right">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="gawe.jpeg" alt="OSIS" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -left-6 text-white/5 font-black text-[15rem] leading-none pointer-events-none">11</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ ORGANIZATION</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">PUBLIC <br> RELATIONS</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Curating two terms of <span class="text-white">institutional legacy</span>. Developing a visual archive for OSIS SMKN 65, focused on brand consistency and public engagement.
+                    </p>
+                    <div class="pt-4 flex gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#PR</span> <span>#Archiving</span> <span>#Multimedia</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group flex flex-col lg:flex-row-reverse gap-16 lg:items-center" data-aos="fade-left">
+                <div class="w-full lg:w-3/5 relative overflow-hidden bg-[#0a0a0a]">
+                    <img src="game.png" alt="ML" class="w-full grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                    <span class="absolute -bottom-10 -right-6 text-white/5 font-black text-[15rem] leading-none text-right pointer-events-none">12</span>
+                </div>
+                <div class="w-full lg:w-2/5 space-y-6 lg:text-right">
+                    <p class="text-xs font-mono text-gray-600 tracking-widest">/ FUTURE STACK</p>
+                    <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">RESEARCH <br> ENGINE</h3>
+                    <p class="text-gray-400 text-lg font-light leading-relaxed">
+                        Experimental <span class="text-white">software development lab</span> focused on Python-based AI research. Prototyping next-generation tools for automation and intelligent system design.
+                    </p>
+                    <div class="pt-4 flex lg:justify-end gap-4 text-[10px] font-bold text-gray-600 tracking-widest uppercase">
+                        <span>#ArtificialIntelligence</span> <span>#FutureTech</span> <span>#R&D</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- About Section -->
-    <section id="about" class="bg-black text-white min-h-screen flex items-center py-20">
-      <div class="container mx-auto px-6 lg:px-16">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          
-          <!-- Foto (sama kaya Hero, biar konsisten) -->
-          <div class="flex justify-center lg:justify-start" data-aos="fade-right">
-            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-gradient-to-r from-indigo-500 to-pink-500 shadow-2xl">
-              <img src="gue.png" alt="Foto Najib" class="w-full h-full object-cover">
-            </div>
-          </div>
+    <section id="about" class="relative bg-black py-60 overflow-hidden border-t border-white/10">
     
-          <!-- Deskripsi -->
-          <div class="text-center lg:text-left" data-aos="fade-left">
-            <h2 class="text-5xl md:text-6xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-600">
-              About Me
-            </h2>
-            <div class="text-gray-300 text-lg md:text-xl leading-relaxed space-y-6">
-              <p>
-                Saya <span class="font-semibold text-indigo-400">Athaillah Nazhif Firdaus</span>, 
-                lulusan <span class="font-semibold">SMK Negeri 65 Jakarta, Jurusan Software Engineering (2025)</span>.
-              </p>
-              <p>
-                Saat ini saya aktif sebagai <span class="text-pink-400 font-semibold">trainer IT, narasumber, dan mentor</span> 
-                yang membagikan pengalaman saya di bidang <span class="text-purple-400">programming, web development, dan multimedia</span>.
-              </p>
-              <p>
-                Fokus saya adalah membantu siswa, mahasiswa, hingga profesional muda 
-                untuk <span class="font-semibold">belajar pemrograman dari dasar hingga mahir</span> 
-                dengan cara yang <span class="font-semibold text-indigo-400">mudah dipahami, interaktif, dan menyenangkan</span>.
-              </p>
-              <p>
-                Selain itu, saya juga senang berbagi insight seputar <span class="text-pink-400">karier IT</span>, 
-                <span class="text-purple-400">personal branding digital</span>, 
-                serta <span class="text-indigo-400">pengembangan diri</span> dalam dunia teknologi.
-              </p>
-            </div>
+    <div class="absolute top-20 left-10 hidden lg:block opacity-[0.03]">
+        <span class="text-[15rem] font-black tracking-tighter uppercase select-none">PROFILE</span>
+    </div>
+
+    <div class="container mx-auto px-6 lg:px-12 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-24 items-start">
             
-            <!-- Tombol -->
-            <div class="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
-              <a href="#projects" 
-                 class="px-8 py-4 border border-gray-600 text-gray-400 hover:bg-gradient-to-r from-indigo-500 to-pink-500 hover:text-white transition-all duration-500 transform hover:scale-105 rounded-lg shadow-lg">
-                🚀 Lihat Proyek
-              </a>
-              <a href="#contact" 
-                 class="px-8 py-4 border border-gray-600 text-gray-400 hover:bg-gradient-to-r from-purple-500 to-indigo-500 hover:text-white transition-all duration-500 transform hover:scale-105 rounded-lg shadow-lg">
-                🎤 Undang Saya
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="w-full lg:w-2/5" data-aos="fade-right" data-aos-duration="1200">
+                <div class="relative group">
+                    <div class="absolute -inset-4 border border-white/10 group-hover:border-white/30 transition-all duration-700"></div>
+                    
+                    <div class="relative overflow-hidden bg-[#0a0a0a]">
+                        <img src="WhatsApp_Image_2024-08-13_at_06.41.53-removebg-preview.png" alt="Athaillah Nazhif" class="w-full grayscale brightness-75 contrast-125 group-hover:scale-105 group-hover:brightness-100 transition-all duration-1000">
+                    </div>
 
+                    <div class="mt-12 space-y-2">
+                        <p class="text-white font-bold tracking-widest uppercase text-xs">Athaillah Nazhif Firdaus</p>
+                        <p class="text-gray-600 font-mono text-[10px] uppercase">Based in Jakarta, Indonesia / Class of 2025</p>
+                    </div>
+                </div>
+            </div>
 
-    <section id="skills" class="py-16 bg-black-900 text-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-5xl font-extrabold text-center mb-12" data-aos="fade-up">My Skills</h2>
-    
-            <!-- Front End Section -->
-            <div class="mb-16">
-                <h3 class="text-4xl font-bold text-center mb-8" data-aos="fade-right">
-                    <i class="fas fa-laptop-code text-blue-500"></i> Front End
-                </h3>
-                <div class="flex flex-wrap justify-center space-x-8">
-                    <div class="text-center" data-aos="zoom-in">
-                        <i class="fab fa-html5 text-red-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">HTML</p>
-                        <span class="text-red-500">EXPERT</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                        <i class="fab fa-css3-alt text-blue-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">CSS</p>
-                        <span class="text-blue-600">EXPERT</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                        <i class="fab fa-js text-yellow-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">JavaScript</p>
-                        <span class="text-yellow-500">MID</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                        <i class="fab fa-react text-blue-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">React</p>
-                        <span class="text-blue-500">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fab fa-angular text-red-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Angular</p>
-                        <span class="text-red-600">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
-                        <i class="fab fa-bootstrap text-purple-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Bootstrap</p>
-                        <span class="text-purple-500">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
-                        <i class="fa-solid fa-file-code text-teal-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Tailwind</p>
-                        <span class="text-teal-500">MID</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="700">
-                        <i class="fab fa-vuejs text-green-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Vue.js</p>
-                        <span class="text-green-600">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="800">
-                        <i class="fab fa-sass text-pink-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">SASS</p>
-                        <span class="text-pink-500">BASIC</span>
-                    </div>
-                    <!-- Add more front-end skills here -->
+            <div class="w-full lg:w-3/5 space-y-12" data-aos="fade-up" data-aos-duration="1000">
+                
+                <div class="flex items-center gap-4">
+                    <span class="w-12 h-[1px] bg-white"></span>
+                    <p class="text-[10px] font-bold tracking-[0.6em] text-white uppercase">The Narrative</p>
                 </div>
-            </div>
-    
-            <!-- Back End Section -->
-            <div class="mb-16">
-                <h3 class="text-4xl font-bold text-center mb-8" data-aos="fade-left">
-                    <i class="fas fa-server text-green-500"></i> Back End
-                </h3>
-                <div class="flex flex-wrap justify-center space-x-8">
-                    <div class="text-center" data-aos="zoom-in">
-                        <i class="fab fa-php text-indigo-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">PHP</p>
-                        <span class="text-indigo-600">MID</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                        <i class="fab fa-laravel text-red-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Laravel</p>
-                        <span class="text-red-600">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                        <i class="fas fa-database text-yellow-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">MySQL</p>
-                        <span class="text-yellow-600">MID</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                        <i class="fab fa-node-js text-green-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Node.js</p>
-                        <span class="text-green-600">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fab fa-python text-yellow-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Python</p>
-                        <span class="text-yellow-600">MID</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
-                        <i class="fab fa-java text-red-700 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Java</p>
-                        <span class="text-red-700">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
-                        <i class="fa-brands fa-golang text-blue-700 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Go</p>
-                        <span class="text-blue-700">BASIC</span>
-                    </div>
-                    <!-- Add more back-end skills here -->
+
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter leading-none text-white uppercase">
+                    ENGINEERING <br> <span class="text-gray-800">WITH PURPOSE.</span>
+                </h2>
+
+                <div class="space-y-8 text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-3xl">
+                    <p>
+                        I am a <span class="text-white font-medium">Software Engineer and IT Trainer</span> dedicated to building efficient digital infrastructures. My journey is defined by a relentless pursuit of technical excellence—bridging the gap between complex <span class="text-white">Machine Learning</span> logic and seamless <span class="text-white">Full-stack</span> experiences.
+                    </p>
+                    
+                    <p>
+                        Beyond the terminal, I believe in the power of knowledge transfer. Having mentored over <span class="text-white font-medium">20+ rising developers</span>, I focus on breaking down advanced concepts into actionable, industry-standard practices.
+                    </p>
+
+                    <p>
+                        My philosophy is simple: <span class="italic">Code should be as clean as the logic behind it.</span> Whether I am architecting scalable systems or directing multimedia productions, I prioritize performance, scalability, and impact.
+                    </p>
                 </div>
-            </div>
-    
-            <!-- Additional Skills Section -->
-            <div class="mb-16">
-                <h3 class="text-4xl font-bold text-center mb-8" data-aos="fade-right">
-                    <i class="fas fa-toolbox text-yellow-500"></i> Additional Skills
-                </h3>
-                <div class="flex flex-wrap justify-center space-x-8">
-                    <div class="text-center" data-aos="zoom-in">
-                        <i class="fa-solid fa-image text-red-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Photoshop</p>
-                        <span class="text-red-600">MID</span>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-12 pt-16 border-t border-white/10">
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-600 tracking-widest uppercase mb-4">Core Systems</p>
+                        <ul class="text-xs text-white space-y-2 font-medium">
+                            <li>Backend Architecture</li>
+                            <li>ML Model Research</li>
+                            <li>Database Optimization</li>
+                        </ul>
                     </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                        <i class="fas fa-video text-blue-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">After Effects</p>
-                        <span class="text-blue-500">MID</span>
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-600 tracking-widest uppercase mb-4">Front-End</p>
+                        <ul class="text-xs text-white space-y-2 font-medium">
+                            <li>Interactive UI/UX</li>
+                            <li>Performance Tuning</li>
+                            <li>Scalable Web Apps</li>
+                        </ul>
                     </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                        <i class="fa-regular fa-file-video text-red-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Premiere</p>
-                        <span class="text-red-500">MID</span>
+                    <div>
+                        <p class="text-[10px] font-bold text-gray-600 tracking-widest uppercase mb-4">Education</p>
+                        <ul class="text-xs text-white space-y-2 font-medium">
+                            <li>IT Curriculum Dev</li>
+                            <li>Technical Mentoring</li>
+                            <li>Public Speaking</li>
+                        </ul>
                     </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                        <i class="fas fa-camera text-purple-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Lightroom</p>
-                        <span class="text-purple-600">MID</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-cogs text-gray-700 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">AutoCAD</p>
-                        <span class="text-gray-700">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
-                        <i class="fas fa-chart-line text-green-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Excel</p>
-                        <span class="text-green-600">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="600">
-                        <i class="fas fa-file-word text-blue-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Word</p>
-                        <span class="text-blue-600">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="700">
-                        <i class="fa-solid fa-file-powerpoint text-red-500 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">PowerPoint</p>
-                        <span class="text-red-500">BASIC</span>
-                    </div>
-                    <div class="text-center" data-aos="zoom-in" data-aos-delay="800">
-                        <i class="fas fa-camera text-gray-600 text-6xl hover:scale-110 transition transform duration-300"></i>
-                        <p class="mt-4 text-lg">Photography</p>
-                        <span class="text-gray-600">MID</span>
-                    </div>
-                    <!-- Add more additional skills here -->
                 </div>
+
+                <div class="pt-12">
+                    <a href="#contact" class="inline-flex items-center gap-6 group">
+                        <span class="text-sm font-bold tracking-[0.3em] uppercase text-white group-hover:text-gray-400 transition-all">Work with me</span>
+                        <div class="w-16 h-[1px] bg-white group-hover:w-24 transition-all duration-500"></div>
+                    </a>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+</section>
+
+
+    <section id="skills" class="bg-black py-40 md:py-60 border-t border-white/10 overflow-hidden">
+    <div class="container mx-auto px-6 lg:px-12">
+        
+        <div class="mb-40 lg:mb-56" data-aos="fade-up">
+            <p class="text-[10px] font-bold tracking-[0.5em] text-gray-500 uppercase mb-8 flex items-center gap-4">
+                <span class="w-12 h-[1px] bg-gray-500"></span>
+                Capability Stack
+            </p>
+            <h2 class="text-6xl md:text-9xl font-black tracking-tighter leading-none text-white uppercase italic">
+                THE <span class="text-gray-800 not-italic">ENGINE.</span>
+            </h2>
+        </div>
+
+        <div class="space-y-32">
+            
+            <div class="group border-b border-white/5 pb-16" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                    <div class="w-full md:w-1/2">
+                        <span class="text-[10px] font-mono text-gray-700 mb-4 block tracking-widest">/ 01 SOFTWARE SYSTEMS</span>
+                        <h3 class="text-4xl md:text-7xl font-extrabold tracking-tighter text-white uppercase leading-none transition-all duration-500 group-hover:pl-4">
+                            ENGINEERING
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <p class="text-gray-400 text-lg font-light leading-relaxed">
+                            Architecting scalable web ecosystems using <span class="text-white">React, Next.js, and Laravel</span>. Focused on clean code and database normalization with <span class="text-white">PostgreSQL</span>.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                            <span>#Next.js</span> <span>#Laravel</span> <span>#NodeJS</span> <span>#TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group border-b border-white/5 pb-16" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                    <div class="w-full md:w-1/2">
+                        <span class="text-[10px] font-mono text-gray-700 mb-4 block tracking-widest">/ 02 DATA LOGIC</span>
+                        <h3 class="text-4xl md:text-7xl font-extrabold tracking-tighter text-white uppercase leading-none transition-all duration-500 group-hover:pl-4">
+                            MACHINE LEARNING
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <p class="text-gray-400 text-lg font-light leading-relaxed">
+                            Developing <span class="text-white">Intelligence models</span> in Python. Expert in data analysis using NumPy and Pandas for predictive algorithm implementation.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                            <span>#Python</span> <span>#ScikitLearn</span> <span>#DataAnalysis</span> <span>#Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group border-b border-white/5 pb-16" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                    <div class="w-full md:w-1/2">
+                        <span class="text-[10px] font-mono text-gray-700 mb-4 block tracking-widest">/ 03 KNOWLEDGE HUB</span>
+                        <h3 class="text-4xl md:text-7xl font-extrabold tracking-tighter text-white uppercase leading-none transition-all duration-500 group-hover:pl-4">
+                            MENTORING
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <p class="text-gray-400 text-lg font-light leading-relaxed">
+                            Certified IT Trainer. Mentoring over <span class="text-white">20+ emerging engineers</span> through systematic workshops and code review.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-[10px] font-bold text-gray-600 uppercase tracking-widest text-white italic">
+                            20+ Engineers Trained
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group border-b border-white/5 pb-16" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                    <div class="w-full md:w-1/2">
+                        <span class="text-[10px] font-mono text-gray-700 mb-4 block tracking-widest">/ 04 MULTIMEDIA</span>
+                        <h3 class="text-4xl md:text-7xl font-extrabold tracking-tighter text-white uppercase leading-none transition-all duration-500 group-hover:pl-4">
+                            CREATIVE SUITE
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <p class="text-gray-400 text-lg font-light leading-relaxed">
+                            Professional <span class="text-white">visual and audio production</span>. Proficient in Adobe Creative Suite, sound design, and cinematic storytelling.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+                            <span>#Premiere</span> <span>#AfterEffects</span> <span>#Photoshop</span> <span>#Lightroom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-40 opacity-10 font-black text-2xl md:text-4xl tracking-[0.5em] uppercase text-center overflow-hidden whitespace-nowrap">
+            CLEAN CODE • SCALABLE • FAST • INNOVATIVE • CLEAN CODE • SCALABLE • FAST • INNOVATIVE
+        </div>
+    </div>
+</section>
 
     <!-- Achievement Section -->
-    <section id="achievements" class="py-24">
-        <div class="container mx-auto px-4">
-            <h2 class="text-5xl font-extrabold text-center mb-16">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
-                    Achievements
-                </span>
+    <section id="achievements" class="bg-black py-40 md:py-60 border-t border-white/10 overflow-hidden">
+    <div class="container mx-auto px-6 lg:px-12">
+        
+        <div class="mb-40 lg:mb-56" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-12 h-[1px] bg-white"></span>
+                <p class="text-[10px] font-bold tracking-[0.5em] text-gray-500 uppercase">Verified Credentials</p>
+            </div>
+            <h2 class="text-7xl md:text-9xl font-black tracking-tighter leading-none text-white uppercase italic">
+                AWARDS <span class="text-gray-800 not-italic">& CERTS.</span>
             </h2>
+        </div>
+
+        <div class="space-y-0">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Achievement 1 -->
-                <div class="group relative cursor-pointer" onclick="openModal('unm.png', 'UNM Web Design Competition')">
-                    <div class="relative aspect-video rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105">
-                        <img src="unm.png" alt="UNM Achievement" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity duration-300">
-                            <div class="absolute inset-0 p-6 flex flex-col justify-between">
-                                <div class="flex justify-between items-start">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2023</span>
-                                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-xs backdrop-blur-sm">Click to view</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-2">Participation Certificate Seminar</h3>
-                                    <p class="text-blue-300 text-base">UNM Conference</p>
-                                    <div class="flex gap-2 mt-3">
-                                        <span class="text-xs bg-blue-500 bg-opacity-20 text-blue-300 px-2 py-1 rounded-full">National Level</span>
-                                        <span class="text-xs bg-blue-500 bg-opacity-20 text-blue-300 px-2 py-1 rounded-full">Web Design</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="group border-t border-white/5 py-16 md:py-28 hover:bg-white/[0.02] transition-all duration-500 cursor-pointer" 
+                 onclick="openEliteModal('unm.png', 'Professional Seminar: Web Design - UNM')">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <span class="text-[10px] font-mono text-gray-700 tracking-[0.3em] uppercase">/ 2023 Archive</span>
+                        <h3 class="text-4xl md:text-7xl font-extrabold tracking-tighter text-white uppercase leading-none group-hover:italic transition-all duration-500">
+                            UNM WEB <br> SEMINAR
+                        </h3>
                     </div>
-                </div>
-    
-                <!-- Achievement 2 -->
-                <div class="group relative cursor-pointer" onclick="openModal('codebit.png', 'Codebit Programming Competition')">
-                    <div class="relative aspect-video rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105">
-                        <img src="codebit.png" alt="Codebit Achievement" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity duration-300">
-                            <div class="absolute inset-0 p-6 flex flex-col justify-between">
-                                <div class="flex justify-between items-start">
-                                    <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2023</span>
-                                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-xs backdrop-blur-sm">Click to view</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-2">Certificate of Appreciation</h3>
-                                    <p class="text-purple-300 text-base">Student Organization Secretary</p>
-                                    <div class="flex gap-2 mt-3">
-                                        <span class="text-xs bg-purple-500 bg-opacity-20 text-purple-300 px-2 py-1 rounded-full">Local Level</span>
-                                        <span class="text-xs bg-purple-500 bg-opacity-20 text-purple-300 px-2 py-1 rounded-full">School</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Achievement 3 -->
-                <div class="group relative cursor-pointer" onclick="openModal('iyco.png', 'International Youth Computer Olympics')">
-                    <div class="relative aspect-video rounded-xl overflow-hidden shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-105">
-                        <img src="iyco.png" alt="IYCO Achievement" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-60 transition-opacity duration-300">
-                            <div class="absolute inset-0 p-6 flex flex-col justify-between">
-                                <div class="flex justify-between items-start">
-                                    <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2023</span>
-                                    <span class="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-xs backdrop-blur-sm">Click to view</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white mb-2">3rd Place</h3>
-                                    <p class="text-pink-300 text-base">National Youth Computer Olympics</p>
-                                    <div class="flex gap-2 mt-3">
-                                        <span class="text-xs bg-pink-500 bg-opacity-20 text-pink-300 px-2 py-1 rounded-full">National</span>
-                                        <span class="text-xs bg-pink-500 bg-opacity-20 text-pink-300 px-2 py-1 rounded-full">Computer Science</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="w-full md:w-1/2 flex md:justify-end items-center gap-8">
+                        <p class="text-gray-600 text-[10px] font-bold tracking-widest uppercase hidden md:block opacity-0 group-hover:opacity-100 transition-all">Preview Document</p>
+                        <div class="w-32 h-20 md:w-56 md:h-32 bg-[#0a0a0a] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                            <img src="unm.png" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-all">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Modal -->
-        <div id="certificateModal" class="fixed inset-0 bg-black bg-opacity-0 flex items-center justify-center z-50 hidden transition-all duration-300 ease-in-out">
-            <div class="max-w-5xl w-full mx-4 bg-white rounded-2xl overflow-hidden relative shadow-2xl transform scale-95 opacity-0 transition-all duration-300 ease-in-out">
-                <img id="modalImage" src="" alt="Certificate" class="w-full h-auto">
-                <div class="absolute top-4 right-4 flex gap-4">
-                    <button onclick="downloadCertificate()" class="group bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg flex items-center gap-3 transition duration-300 transform hover:scale-105 hover:shadow-lg">
-                        <svg class="w-6 h-6 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                        </svg>
-                        <span class="font-semibold">Download</span>
-                    </button>
-                    <button onclick="closeModal()" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition duration-300 transform hover:scale-105 hover:shadow-lg">
-                        <span class="font-semibold">Close</span>
-                    </button>
+            <div class="group border-t border-white/5 py-16 md:py-28 hover:bg-white/[0.02] transition-all duration-500 cursor-pointer text-right" 
+                 onclick="openEliteModal('iyco.png', 'IYCO - National Computer Olympics')">
+                <div class="flex flex-col md:flex-row-reverse justify-between items-center gap-12">
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <span class="text-[10px] font-mono text-gray-700 tracking-[0.3em] uppercase lg:text-right block">/ 2023 Archive</span>
+                        <h3 class="text-4xl md:text-7xl font-extrabold tracking-tighter text-white uppercase leading-none group-hover:italic transition-all duration-500">
+                            NATIONAL <br> OLYMPICS
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 flex justify-start items-center gap-8">
+                        <div class="w-32 h-20 md:w-56 md:h-32 bg-[#0a0a0a] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                            <img src="iyco.png" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-all">
+                        </div>
+                        <p class="text-gray-600 text-[10px] font-bold tracking-widest uppercase hidden md:block opacity-0 group-hover:opacity-100 transition-all">Top 3 Achievement</p>
+                    </div>
                 </div>
             </div>
+
+            <div class="group border-t border-white/5 py-16 md:py-28 hover:bg-white/[0.02] transition-all duration-500 cursor-pointer" 
+                 onclick="openEliteModal('codebit.png', 'Leadership Archive: SMKN 65 OSIS Board')">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <span class="text-[10px] font-mono text-gray-700 tracking-[0.3em] uppercase">/ 2023 Archive</span>
+                        <h3 class="text-4xl md:text-7xl font-extrabold tracking-tighter text-white uppercase leading-none group-hover:italic transition-all duration-500">
+                            ORGANIZATION <br> BOARD
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 flex md:justify-end items-center gap-8">
+                        <p class="text-gray-600 text-[10px] font-bold tracking-widest uppercase hidden md:block opacity-0 group-hover:opacity-100 transition-all">Verify Leadership</p>
+                        <div class="w-32 h-20 md:w-56 md:h-32 bg-[#0a0a0a] overflow-hidden border border-white/10 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                            <img src="codebit.png" class="w-full h-full object-cover opacity-40 group-hover:opacity-100 transition-all">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group border-y border-white/5 py-16 md:py-28 hover:bg-white/[0.02] transition-all duration-500" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row-reverse justify-between items-center gap-12 text-right">
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <span class="text-[10px] font-mono text-red-600 tracking-[0.3em] uppercase lg:text-right block italic">/ 2025 National Standard</span>
+                        <h3 class="text-4xl md:text-7xl font-black tracking-tighter text-white uppercase leading-none">
+                            BNSP JUNIOR <br> PROGRAMMER
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 flex justify-start items-center gap-8">
+                        <div class="flex flex-col items-start gap-4">
+                            <p class="text-[10px] font-bold text-gray-700 tracking-[0.4em] uppercase">Access Restricted</p>
+                            <a href="#contact" class="px-8 py-3 border border-white/10 text-white text-[10px] font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">
+                                Request Access
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </div>
+</section>
 
-        <script>
-            let currentCertificate = '';
-
-            function openModal(imageSrc, title) {
-                currentCertificate = imageSrc;
-                const modal = document.getElementById('certificateModal');
-                const modalContent = modal.querySelector('div');
-                const modalImage = document.getElementById('modalImage');
-                
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.classList.add('bg-opacity-90');
-                    modalContent.classList.remove('scale-95', 'opacity-0');
-                    modalContent.classList.add('scale-100', 'opacity-100');
-                }, 10);
-                
-                modalImage.src = imageSrc;
-                modalImage.alt = title;
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                const modal = document.getElementById('certificateModal');
-                const modalContent = modal.querySelector('div');
-                
-                modal.classList.remove('bg-opacity-90');
-                modalContent.classList.remove('scale-100', 'opacity-100');
-                modalContent.classList.add('scale-95', 'opacity-0');
-                
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            }
-
-            function downloadCertificate() {
-                const link = document.createElement('a');
-                link.href = currentCertificate;
-                link.download = 'certificate.png';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-
-            // Close modal when clicking outside
-            document.getElementById('certificateModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeModal();
-                }
-            });
-
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
-            });
-        </script>
-
-    </section>
-
-    <!-- Testimoni Section -->
-    <section id="testimoni" class="bg-black text-white py-20 px-6 md:px-20">
-      <div class="container mx-auto text-center">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-600" data-aos="fade-up">
-          Testimoni
-        </h2>
+<div id="eliteModal" class="fixed inset-0 z-[99999] hidden flex-col items-center justify-center p-4 md:p-12 bg-black/98 backdrop-blur-xl transition-all duration-500">
+    <div class="absolute inset-0" onclick="closeEliteModal()"></div>
     
-        <!-- Form -->
-        <form id="testimoniForm" class="max-w-2xl mx-auto mb-12 space-y-4" data-aos="fade-up" data-aos-delay="200">
-          <input type="text" id="nama" placeholder="Nama Anda" required
-            class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-          <textarea id="isi" placeholder="Tulis testimoni..." required
-            class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-          <button type="submit"
-            class="px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-pink-500 hover:opacity-90 transition-all duration-300 font-semibold shadow-lg">
-            Kirim Testimoni
-          </button>
-        </form>
-    
-        <!-- List Testimoni -->
-        <div id="listTestimoni" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="400">
-          <!-- Card testimoni muncul disini -->
-        </div>
-      </div>
-    </section>
-    
-    <script>
-      const form = document.getElementById("testimoniForm");
-      const list = document.getElementById("listTestimoni");
-    
-      function loadTestimoni() {
-        const data = JSON.parse(localStorage.getItem("testimoni")) || [];
-        list.innerHTML = "";
-        data.forEach(t => {
-          const card = document.createElement("div");
-          card.className = "bg-gray-900 border border-gray-800 p-6 rounded-2xl shadow-lg hover:scale-105 transform transition";
-          card.innerHTML = `
-            <h4 class="font-bold text-lg mb-2 text-indigo-400">${t.nama}</h4>
-            <p class="text-gray-300 leading-relaxed">"${t.isi}"</p>
-          `;
-          list.appendChild(card);
-        });
-      }
-    
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const nama = document.getElementById("nama").value;
-        const isi = document.getElementById("isi").value;
-    
-        const data = JSON.parse(localStorage.getItem("testimoni")) || [];
-        data.push({ nama, isi });
-        localStorage.setItem("testimoni", JSON.stringify(data));
-    
-        form.reset();
-        loadTestimoni();
-      });
-    
-      loadTestimoni();
-    </script>
-
-                
-
-    <section id="contact" class="relative bg-black-900 text-white py-16 md:py-32 overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 -z-10">
-            <canvas id="particleCanvas" class="w-full h-full"></canvas>
-        </div>
-    
-        <!-- Contact Content -->
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-8" data-aos="fade-up">Get in Touch</h2>
-            <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                I'm excited to connect with you! Reach out through any of the channels below for inquiries, collaborations, or just to chat.
-            </p>
-            <div class="flex flex-wrap justify-center gap-8">
-                <!-- WhatsApp Card -->
-                <a href="https://wa.me/6282125511485" class="contact-card group relative flex flex-col items-center bg-gradient-to-r from-green-400 via-green-500 to-green-600 p-8 rounded-2xl shadow-2xl transform transition-transform duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden">
-                    <i class="fab fa-whatsapp fa-4x mb-4 text-white transition-transform duration-300 group-hover:translate-y-2"></i>
-                    <span class="text-xl font-semibold mb-2 text-white">WhatsApp</span>
-                    <p class="text-gray-200">Send me a message directly on WhatsApp.</p>
-                    <div class="absolute inset-0 border-4 border-transparent group-hover:border-white transition-all duration-300"></div>
-                </a>
-                <!-- Email Card -->
-                <a href="mailto:azhif.firdaus25@gmail.com" class="contact-card group relative flex flex-col items-center bg-gradient-to-r from-red-400 via-red-500 to-red-600 p-8 rounded-2xl shadow-2xl transform transition-transform duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden">
-                    <i class="fas fa-envelope fa-4x mb-4 text-white transition-transform duration-300 group-hover:translate-y-2"></i>
-                    <span class="text-xl font-semibold mb-2 text-white">Email</span>
-                    <p class="text-gray-200">Drop me an email and I’ll get back to you soon.</p>
-                    <div class="absolute inset-0 border-4 border-transparent group-hover:border-white transition-all duration-300"></div>
-                </a>
-                <!-- Discord Card -->
-                <a href="https://discord.com/users/justprz252" class="contact-card group relative flex flex-col items-center bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 p-8 rounded-2xl shadow-2xl transform transition-transform duration-300 hover:scale-110 hover:shadow-3xl overflow-hidden">
-                    <i class="fab fa-discord fa-4x mb-4 text-white transition-transform duration-300 group-hover:translate-y-2"></i>
-                    <span class="text-xl font-semibold mb-2 text-white">Discord</span>
-                    <p class="text-gray-200">Connect with me on Discord for quick chats.</p>
-                    <div class="absolute inset-0 border-4 border-transparent group-hover:border-white transition-all duration-300"></div>
-                </a>
+    <div class="relative w-full max-w-6xl flex flex-col gap-6" onclick="event.stopPropagation()">
+        <div class="flex justify-between items-end border-b border-white/10 pb-4">
+            <p id="modalCertTitle" class="text-white text-[10px] font-bold tracking-[0.5em] uppercase">Document Preview</p>
+            <div class="flex gap-6">
+                <button onclick="triggerDownload()" class="text-white text-[10px] font-bold tracking-widest uppercase hover:text-gray-400 transition-all border-b border-white/20 pb-1">Download</button>
+                <button onclick="closeEliteModal()" class="text-white hover:text-red-500 transition-all"><i class="fas fa-times"></i></button>
             </div>
         </div>
-    </section>
+
+        <div class="relative w-full h-[60vh] md:h-[75vh] bg-[#050505] flex items-center justify-center overflow-hidden border border-white/10">
+            <img id="modalCertImage" src="" class="max-w-full max-h-full object-contain transition-transform duration-700 hover:scale-110 cursor-zoom-in" onclick="this.classList.toggle('scale-150'); this.classList.toggle('cursor-zoom-out')">
+        </div>
+    </div>
+</div>
+
+<script>
+    let globalCertPath = "";
+
+    function openEliteModal(path, title) {
+        globalCertPath = path;
+        document.getElementById('modalCertImage').src = path;
+        document.getElementById('modalCertTitle').innerText = title;
+        
+        const modal = document.getElementById('eliteModal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeEliteModal() {
+        const modal = document.getElementById('eliteModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+
+    function triggerDownload() {
+        if (!globalCertPath) return;
+        const link = document.createElement('a');
+        link.href = globalCertPath;
+        link.download = `Nazhif_Certified_${Date.now()}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeEliteModal();
+    });
+</script>
+
+    <section id="contact" class="bg-black py-40 md:py-60 border-t border-white/10 overflow-hidden">
+    <div class="container mx-auto px-6 lg:px-12">
+        
+        <div class="mb-40 lg:mb-56" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="w-12 h-[1px] bg-white"></span>
+                <p class="text-[10px] font-bold tracking-[0.5em] text-gray-500 uppercase">Direct Access</p>
+            </div>
+            <h2 class="text-7xl md:text-9xl font-black tracking-tighter leading-none text-white uppercase italic">
+                READY TO <br> <span class="text-gray-800 not-italic">START?</span>
+            </h2>
+        </div>
+
+        <div class="space-y-0">
+            
+            <a href="https://wa.me/6282125511485" target="_blank" 
+               class="group block border-t border-white/5 py-16 md:py-28 hover:bg-white/[0.02] transition-all duration-700">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <span class="text-[10px] font-mono text-gray-700 block mb-6 tracking-widest uppercase">/ Instant Messaging</span>
+                        <h3 class="text-5xl md:text-8xl font-black tracking-tighter text-white uppercase leading-none group-hover:italic transition-all duration-500">
+                            WHATSAPP
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 flex md:justify-end items-center gap-8">
+                        <p class="text-gray-600 text-[10px] font-bold tracking-widest uppercase hidden md:block opacity-0 group-hover:opacity-100 transition-all">Direct Communication 01</p>
+                        <div class="w-12 h-[1px] bg-white/20 group-hover:w-24 group-hover:bg-white transition-all duration-500"></div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="mailto:azhif.firdaus25@gmail.com" target="_blank" 
+               class="group block border-t border-white/5 py-16 md:py-28 hover:bg-white/[0.02] transition-all duration-700 text-right">
+                <div class="flex flex-col md:flex-row-reverse justify-between items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <span class="text-[10px] font-mono text-gray-700 block mb-6 tracking-widest uppercase lg:text-right block">/ Official Inquiry</span>
+                        <h3 class="text-5xl md:text-8xl font-black tracking-tighter text-white uppercase leading-none group-hover:italic transition-all duration-500">
+                            E-MAIL
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 flex justify-start items-center gap-8">
+                        <div class="w-12 h-[1px] bg-white/20 group-hover:w-24 group-hover:bg-white transition-all duration-500"></div>
+                        <p class="text-gray-600 text-[10px] font-bold tracking-widest uppercase hidden md:block opacity-0 group-hover:opacity-100 transition-all">Official Channel 02</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.instagram.com/athnf._/" target="_blank" 
+               class="group block border-y border-white/5 py-16 md:py-28 hover:bg-white/[0.02] transition-all duration-700">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <span class="text-[10px] font-mono text-gray-700 block mb-6 tracking-widest uppercase">/ Social Connect</span>
+                        <h3 class="text-5xl md:text-8xl font-black tracking-tighter text-white uppercase leading-none group-hover:italic transition-all duration-500">
+                            INSTAGRAM
+                        </h3>
+                    </div>
+                    <div class="w-full md:w-1/2 flex md:justify-end items-center gap-8">
+                        <p class="text-gray-600 text-[10px] font-bold tracking-widest uppercase hidden md:block opacity-0 group-hover:opacity-100 transition-all">Digital Presence 03</p>
+                        <div class="w-12 h-[1px] bg-white/20 group-hover:w-24 group-hover:bg-white transition-all duration-500"></div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="mt-40 flex flex-col md:flex-row justify-between items-end md:items-center gap-8 border-t border-white/5 pt-20">
+            <div class="space-y-4">
+                <h4 class="text-xl font-black tracking-tighter uppercase text-white">Nazhif Firdaus.</h4>
+                <p class="text-[9px] text-gray-600 font-mono tracking-widest uppercase italic leading-none">
+                    Software Engineer • ML Practitioner • IT Trainer
+                </p>
+            </div>
+            <p class="text-[9px] text-gray-800 font-bold tracking-widest uppercase">© 2026 Jakarta / Indonesia</p>
+            <button onclick="window.scrollTo(0,0)" class="text-[9px] font-bold text-gray-500 uppercase tracking-widest border border-white/10 px-4 py-2 hover:bg-white hover:text-black transition-all">
+                Back to Top
+            </button>
+        </div>
+    </div>
+</section>
     
     <!-- Include Font Awesome CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
